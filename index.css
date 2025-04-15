@@ -1,0 +1,369 @@
+* {
+    box-sizing: border-box;
+}
+
+header{
+    position: relative;
+    height: 80px;
+}
+/* 自适应 banner 样式 */
+.banner {
+    position: relative;
+    margin-top: 0;
+    top: 0;
+    height: 500px;
+    overflow: hidden; 
+    .slides {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+      
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        z-index: 1;
+    }
+    
+    .slide.active {
+        opacity: 1;
+        z-index: 2;
+    }
+    .slide img {
+        width: 100%;
+        height: 100%; /* 修复缺失的高度定义 */
+        object-fit: cover;
+    }
+    
+    /* 新增指示器样式 */
+    .indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);    display: flex;
+        gap: 8px;
+        z-index: 3;
+    }
+    
+    .indicator {
+        width: 50px;
+        height: 27px;
+        background-image: url('index/indicator-native.png');
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .indicator.active {
+        background-image: url('index/indicator-active.png');
+    } /* 微调补偿可能的计算误差 */
+}
+.banner .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 确保图片填充并裁剪以适配容器 */
+}
+
+
+/* 响应式适配 */
+@media screen and (max-width: 768px) {
+    
+    body {
+        background-size: 100% auto; /* 在小屏幕上适应宽度 */
+    }
+    header nav ul li {
+        margin: 0 10px;
+    }
+
+    .banner .arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 16px;
+    }
+}
+@media screen and (min-width: 769px) {
+    body {
+        background-size: cover; /* 在大屏幕上适应整个页面 */
+    }
+}
+@media screen and (max-width: 480px) {
+    .banner {
+        height: 40vh; /* 进一步降低 banner 高度 */
+    }
+
+    .banner .arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}
+
+.intro {
+    text-align: center; /* 水平居中 */
+    font-family: 'Fangzheng Xiaobiao Song', serif; /* 设置字体为方正小标宋简 */
+    font-size: 64px; /* 设置字体大小 */
+    color: #333; /* 字体颜色 */
+    padding: 40px 20px; /* 内边距，增加上下间距 */
+    margin-top: 80px;
+}
+
+.intro h2 {
+    margin-bottom: 20px; /* 标题下方的间距 */
+}
+
+.intro p {
+    margin-top: 10px; /* 段落上方的间距 */
+}
+/* 正文1 */
+.container {
+    display: flex;
+    flex-direction: column; /* 子元素垂直排列 */
+    align-items: center; /* 垂直居中对齐所有行 */
+    max-width: 100%;
+    
+}
+
+.row {
+    display: flex;
+    flex-direction: row; /* 子元素水平排列 */
+    align-items: center; /* 垂直居中对齐所有项目 */
+    justify-content: flex-start; /* 左对齐，避免间距过大 */
+    width: 100%; /* 每行的宽度占满容器 */
+    max-width: 100%;
+    margin-bottom: 60px; /* 减少每行之间的间隔 */
+}
+
+.container #img1 {
+    width: 25%; /* 图片宽度调整为 40%，可以根据需要缩小或增大 */
+    height: auto; /* 高度自动调整以保持图片比例 */
+    margin-right: 50px; /* 给图片和文本之间添加适当的间距 */
+}
+.container #img2 {
+    width: 25%; /* 图片宽度调整为 40%，可以根据需要缩小或增大 */
+    height: auto; /* 高度自动调整以保持图片比例 */
+    margin-right: 10%; /* 给图片和文本之间添加适当的间距 */
+}
+
+
+.row #text1 {
+    width: 45%; /* 调整宽度 */
+    font-size: 40px;
+    font-family: 'FangSong', '仿宋', serif;
+    line-height: 1.5;
+    margin-left: 10%; /* 减少左边距 */
+}
+
+.row #text2 {
+    width: 45%; /* 调整宽度 */
+    font-size: 40px;
+    font-family: 'FangSong', '仿宋', serif;
+    line-height: 1.5;
+    margin-left: 10%;
+    margin-right: 5%; /* 减少右边距 */
+}
+
+
+/* 制作方法 */
+.tea-process {
+    max-width: 100%;
+    text-align: center;
+    font-family: 'Fangzheng Xiaobiao Song', serif; /* 使用仿宋字体 */
+}
+
+.tea-process h2 {
+    font-size: 64px;
+    color: #333;
+    margin-bottom: 30px; /* 增加与其他部分的间距 */
+}
+
+.steps {
+    display: inline;
+    height: 500px;  /* 设置容器的高度 */
+    position: relative;
+    overflow: hidden;  /* 防止溢出 */
+}
+
+.step {
+    font-size: 64px;
+    color: #000;
+    opacity: 0;
+    transition: all 0.8s ease;
+    transform: translateY(30px);  /* 初始状态位置稍微偏下 */
+    display: flex;
+    position: absolute;
+    width: 100%; /* 让它们水平居中 */
+}
+.step.visible{
+    width: fit-content;
+}
+
+.step:nth-child(1) {
+    top: 10%;  /* 錾刻在顶部 */
+    left: 15%;  /* 錾刻在最左边 */
+}
+
+.step:nth-child(2) {
+    top: 40%;  /* 浸泡在中间偏下的位置 */
+    left: 35%;  /* 浸泡在中间偏左 */
+}
+
+.step:nth-child(3) {
+    top: 80%;  /* 过青在底部，调整为接近底部的位置 */
+    left: 60%;  /* 过青在中间偏右 */
+}
+
+.step:nth-child(4) {
+    top: 90%;  /* 筛晒略高于过青 */
+    left: 80%;  /* 筛晒在最右边 */
+}
+
+.steps .step img {
+    width: 40px;
+    height: 40px;
+    margin-top: auto;
+    display: block;
+}
+
+/* 默认隐藏和从下方滑动 */
+.steps  .step, .section-element {
+    position: relative; /* 确保元素位置有效 */
+    opacity: 0;
+    transform: translateY(50px); /* 初始位置稍微偏下 */
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* 进入视口后激活动画 */
+.steps .step.visible, .section-element.visible {
+    opacity: 1;
+    transform: translateY(0); /* 到达预设位置 */
+}
+
+/* 给父容器添加flex布局，确保子元素垂直排列 */
+.two-columns {
+    display: flex;
+    flex-direction: column; /* 子元素垂直排列 */
+    gap: 20px; /* 子元素之间的间隔 */
+    align-items: center; /* 垂直居中对齐所有项目 */
+}
+
+.two-columns #column1 {
+    display: block; /* 或者保持默认的块级元素 */
+    width: 100%; /* 确保容器占满宽度 */
+    text-align: right; /* 让里面的图片靠右对齐 */
+}
+
+.two-columns #column1 img {
+    width: 25%;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    margin-left: auto; /* 将图片推到右边 */
+    margin-right: 15%;
+}
+
+/* 设置图片的父容器position为relative */
+.two-columns #column2 {
+    display: flex;
+    flex-direction: row; /* 子元素水平排列 */
+    justify-content: center; /* 确保#column2的内容水平居中 */
+    align-items: center; /* 垂直居中对齐所有项目 */
+    gap: 60px; /* 设置元素之间的间隔为60px */
+    width: 100%; /* 确保容器宽度占满 */
+}
+
+/* 图片的基础样式 */
+.two-columns #column2 img {
+    width: 100%; /* 根据需求调整图片宽度 */
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    position: relative; /* 为伪元素提供定位参考 */
+}
+
+/* 设置hover时显示图层的效果 */
+.two-columns #column2 > div:hover::after {
+    content: "了解详情"; /* 显示文本 */
+    position: absolute; /* 绝对定位在图片上 */
+    bottom: 0; /* 图层放置在图片底部 */
+    left: 0;
+    right: 0;
+    height: 33%; /* 图层高度为图片的1/3 */
+    background-color: rgba(217, 27, 27, 0.7); /* 半透明红色背景 */
+    color: white; /* 白色文本 */
+    font-size: 24px; /* 文本大小 */
+    display: flex;
+    justify-content: flex-end; /* 水平靠右 */
+    align-items: flex-end; /* 垂直靠底部 */
+    padding: 10px 20px; /* 右下角文本的内边距 */
+    border-radius: 10px; /* 圆角效果 */
+    opacity: 0; /* 初始不可见 */
+    transition: opacity 0.3s ease-in-out; /* 平滑过渡 */
+}
+
+/* 鼠标悬停时显示蒙版 */
+.two-columns #column2 > div:hover::after {
+    opacity: 1; /* 鼠标悬停时显示蒙版 */
+}
+
+/* 让蒙版上的文字加粗 */
+.two-columns #column2 > div:hover::after {
+    font-weight: bold;
+}
+
+
+
+
+/* 2. description部分设置间距，调整文字样式 */
+.two-columns .description {
+    margin-top: 20px;
+    font-size: 32px;
+    color: #333;
+    line-height: 1.8;
+    font-family: 'FangSong', '仿宋', serif;
+    padding: 0 20px; /* 添加左右内边距 */
+}
+
+.partner-wall {
+    margin: 80px 0;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row; /* 子元素垂直排列 */
+  }
+  
+  .partner-card {
+    display: inline - block;
+    width: 15%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column; /* 子元素垂直排列 */
+    position: relative;
+    background-color: aliceblue;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding-bottom: 20%; /* 4/3的比例，即100/ (4/3) = 75% */
+    box-sizing: border-box; /* 确保边框和内边距不会增加元素的尺寸 */
+  }
+
+.partner-card img {
+    width:85%;
+    border-radius: 50%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.partner-card p {
+    position: absolute;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .partner-card {
+       width: 100%;
+       margin-right: 0;
+       margin-bottom: 20px;
+     }
+   }
