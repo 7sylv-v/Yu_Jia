@@ -1,0 +1,229 @@
+header{
+    position: relative;
+    height: 80px;
+}
+.main-container{
+    margin: 0 140px;
+}
+/* 产品画廊布局 */
+.product-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #8e6b3f;
+    margin-bottom: 3rem;
+    position: relative;
+    font-weight: 800;
+    letter-spacing: 5px;
+    font-family: 'fangsong', sans-serif;
+}
+
+
+
+/* 产品画廊布局 */
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* 产品卡片通用样式 */
+.product-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(168, 132, 81, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    border: 1px solid #f0e6d6;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(168, 132, 81, 0.2);
+}
+
+.card-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #d4a373, #8e6b3f);
+}
+
+/* 产品图片区域 */
+.product-image {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+    background: #ffffff; /* 添加米色背景作为图片加载时的占位 */
+}
+
+/* 图片缩放样式 */
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 保持比例完整显示 */
+    object-position: center;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: 15px; /* 添加内边距避免图片贴边 */
+    box-sizing: border-box;
+}
+
+.image-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(193, 170, 113, 0.094));
+}
+
+/* 悬停放大效果 */
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+/* 包装图片特殊处理 */
+.packaging-card .product-image img {
+    object-fit: cover; /* 包装图使用cover模式 */
+    padding: 0;
+    
+}
+
+.packaging-card .card-decoration {
+    border-radius: 8px 8px 0 0;
+    background: linear-gradient(90deg, #8e6b3f, #d4a373);
+}
+
+.packaging-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #8e6b3f;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+.packaging-badge svg {
+    margin-right: 5px;
+}
+
+/* 产品内容区域 */
+.product-content {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* 包装卡片专属样式 */
+.packaging-card {
+    position: relative;
+    background: #fef8f0;
+    border: 1px solid #e8d5b5;
+    box-shadow: 0 10px 30px rgba(168, 132, 81, 0.135);
+    overflow: visible;
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.packaging-card::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(135deg, rgba(224, 250, 224, 0.3), rgba(237, 241, 159, 0.1));
+    z-index: -1;
+    border-radius: 15px;
+}
+
+/* 包装徽章增强 */
+.packaging-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #a88759;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    z-index: 2;
+}
+
+.packaging-badge svg {
+    margin-right: 5px;
+    filter: drop-shadow(0 1px 1px rgba(0,0,0,0.2));
+}
+
+/* 特性标签样式 */
+.packaging-features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.packaging-features span {
+    background: rgba(212, 163, 115, 0.1);
+    color: #6b4f32;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    border: 1px dashed #d4a373;
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* 诗词描述样式 */
+.poetic-desc {
+    font-size: 1rem;
+    color: #8e6b3f;
+    text-align: center;
+    margin: 15px 0;
+    position: relative;
+    line-height: 1.8;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .packaging-card {
+        grid-column: 1 / -1;
+    }
+    
+    .packaging-features {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+/* 卡片装饰线动画 */
+.card-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #d4a373, #8e6b3f);
+    transition: all 0.3s ease;
+}
+
+.packaging-card:hover .card-decoration {
+    height: 8px;
+    background: linear-gradient(90deg, #8e6b3f, #d4a373);
+}
