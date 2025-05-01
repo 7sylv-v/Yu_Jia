@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: '关于产品',
-            path: '/craft/craft.html',
+            path: '/craft/',
             subPaths: [
                 '/craft/product/',
                 '/craft/product/文创/',
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: '雅集共赏',
-            path: '/event/event.html',
+            path: '/event/',
             subPaths: [
                 '/event/img/'
             ]
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: '加入我们',
             path: '/about_us/us.html',
             subPaths: [
-                '/about_us/us_img/'
+                '/about_us/'
             ]
         }
     ];
