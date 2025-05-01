@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玉林茶泡技艺传承</title>
+    <link rel="stylesheet" href="/bg.css">
+    <link rel="stylesheet" href="JiYi.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="logo">
+            <img src="/img/logo.png" alt="Logo" width="80" loading="lazy">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li class="nav-item"><a href="/index.html" class="nav-link">首页</a></li>
+                <li class="nav-item"><a href="/culture/JiYi.html" class="nav-link">茶泡技艺</a></li>
+                <li class="nav-item"><a href="/craft/craft.html" class="nav-link">关于产品</a></li>
+                <li class="nav-item"><a href="/event/event.html" class="nav-link">雅集共赏</a></li>
+                <li class="nav-item"><a href="/about_us/us.html" class="nav-link">加入我们</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- 添加面包屑导航 -->
+    <div class="breadcrumb">
+        <a href="/index.html">首页</a> >  
+        <span>茶泡技艺</span>
+    </div>
+
+    <h1 class="step-title">玉林茶泡制作技艺</h1>
+    
+    <div class="step-nav">
+        <button class="step-btn" onclick="showStep(1)">1. 选料</button>
+        <button class="step-btn" onclick="showStep(2)">2. 錾花</button>
+        <button class="step-btn" onclick="showStep(3)">3. 上盘和晾晒</button>
+        <button class="step-btn" onclick="showStep(4)">4. 成品</button>
+    </div>
+
+    <div id="step-1" class="step-content active">
+        <h2>选料工序</h2>
+        <p>茶泡主原料有石瓜和木瓜，
+            首选本地老水石瓜，次选冬瓜，
+            30斤以上老石瓜最佳（冬瓜）。
+            <br>玉林茶泡是一种味道清甜的泡茶甜点。
+            也是一种集绘画图案装饰、精雕细錾耐人观赏的工艺品。
+            <br>在宋代便有了，清代最为盛行。</p>
+        <div class="video-container">
+            <video controls width="800" height="450">
+                <source src="JiYi-video/选料.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+              </video>
+        </div>
+        <button onclick="completeStep(1)">完成学习</button>
+    </div>
+
+    <div id="step-2" class="step-content">
+        <h2>錾刻</h2>
+        <p>削皮切成理想尺寸，
+            用特制錾刀錾成各种图案，如方形、扇形、菱形等等。
+        </p>
+        <div class="video-container">
+            <video controls width="800" height="450">
+                <source src="JiYi-video/錾花.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+              </video>
+        </div>
+        <button onclick="completeStep(2)">完成学习</button>
+    </div>
+    <div id="step-3" class="step-content">
+        <h2>上盘和晾晒</h2>
+        <p>用清水浸泡过夜，第二天清洗几遍，沥水，熬糖水，上盘。</p>
+        <div class="video-container">
+            <video controls width="800" height="450">
+                <source src="JiYi-video/上盘和晾晒.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+              </video>
+        </div>
+        <button onclick="completeStep(3)">完成学习</button>
+    </div>
+    <div id="step-4" class="step-content">
+        <h2>成品</h2>
+        <p>历经半个月的成品茶泡做好啦～茶泡已列入非物质文化遗产，希望大家对茶盘文化感兴趣～</p>
+        <div class="video-container">
+            <video controls width="800" height="450">
+                <source src="JiYi-video/成品.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+              </video>
+        </div>
+        <button onclick="completeStep(4)">完成学习</button>
+    </div>
+    <!-- 其他步骤内容结构类似，此处省略 -->
+
+    <div id="complete-section">
+        <h2>恭喜完成所有工序！</h2>
+        <img src="tea-bubble.png" class="tea-bubble" alt="成品茶泡">
+        <p>您已成功制作出玉林传统茶泡！</p>
+    </div>
+
+
+   <!-- 底部链接部分 -->
+   <footer>
+    <div class="social-media">
+        <a href="#">
+            <img src="/img/微信 1.svg" alt="微信">
+        </a>
+        <a href="#">
+            <img src="/img/抖音.svg" alt="TikTok">
+        </a>
+        <a href="https://www.xiaohongshu.com/user/profile/65aa1db7000000000e003894" target="_blank">
+            <img src="/img/小红书.svg" alt="小红书">
+        </a>
+        <a href="#">
+            <img src="/img/微博.svg" alt="微博">
+        </a>
+    </div>
+    <p>版权所有 © 2024 鬰家·妆点时光</p>
+</footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="/bg.js"></script>
+    <script src="JiYi.js">    </script>
+</body>
+</html>
