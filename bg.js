@@ -34,35 +34,35 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: '茶泡技艺',
-            path: '/culture/JiYi.html',
+            path: './culture/JiYi.html',
             subPaths: [
-                '/culture/picture/',
-                '/culture/'
+                './culture/picture/',
+                './culture/'
             ]
         },
         {
             name: '关于产品',
-            path: '/craft/',
+            path: './craft/craft.html',
             subPaths: [
-                '/craft/product/',
-                '/craft/product/文创/',
-                '/craft/product/普通款/',
-                '/craft/product/老炮儿/',
-                '/craft/product/茶嫁家/'
+                './craft/product/',
+                './craft/product/文创/',
+                './craft/product/普通款/',
+                './craft/product/老炮儿/',
+                './craft/product/茶嫁家/'
             ]
         },
         {
             name: '雅集共赏',
             path: '/event/',
             subPaths: [
-                '/event/img/'
+                './event/img/'
             ]
         },
         {
             name: '加入我们',
-            path: '/about_us/us.html',
+            path: './about_us/us.html',
             subPaths: [
-                '/about_us/'
+                './about_us/'
             ]
         }
     ];
