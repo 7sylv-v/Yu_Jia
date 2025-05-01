@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ===== 宣传图部分 ===== */
+  .banner {
+    position: relative;
+    margin-top: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 1;
+  }
+  
+  .banner img {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  .banner-title {
+    position: absolute;
+    bottom: 60px;
+    left: 5%;
+    font-size: 48px;
+    color: #fffcee;
+    font-weight: bold;
+    font-family: 'Fangzheng Xiaobiao Song', serif;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+/* 介绍部分 */
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin: 50px auto;
+    gap: 40px;
+}
+
+.about-text {
+    width: 50%;
+}
+
+.about-text h2 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+    
+}
+
+.about-text p {
+    font-family: 'Fangzheng Xiaobiao Song', serif;
+    font-size: 20px;
+    color: #6D4C41;
+    line-height: 1.6;
+}
+
+/* 右侧图片 */
+.about-image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-text, .about-image {
+        width: 100%;
+    }
+
+    .about-text {
+        margin-bottom: 20px;
+    }
+}
+
+/* 特点和优势部分 */
+.advantages-container {
+    width: 80%;
+    margin: 60px auto;
+    text-align: center;
+}
+
+/* 中标题 */
+.advantages-title {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* 三个部分的容器 */
+.advantages-content {
+    display: flex;
+    justify-content: space-between; /* 使三部分均匀排列 */
+    gap: 40px; /* 控制间距 */
+}
+
+/* 单个优势部分 */
+.advantage-box {
+    flex: 1; /* 让每个盒子均匀占据空间 */
+    background: rgba(255, 255, 255, 0.6);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 小标题 */
+.advantage-box h3 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* 文字内容 */
+.advantage-box p {
+    font-size: 16px;
+    color: #6D4C41;
+    line-height: 1.6;
+}
+
+/* 悬停交互 */
+.advantage-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .advantages-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+/* 欢迎加入我们部分 */
+.join-container {
+    width: 80%;
+    margin: 80px auto;
+    text-align: center;
+}
+
+/* 中标题 */
+.join-title {
+    font-size: 32px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* 横向滚动容器 */
+.join-content {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 图片项基础样式 */
+.join-image {
+    flex: 0 0 300px; /* 固定宽度 */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-right: 20px;
+    position: relative;
+    border-radius: 10px;
+}
+
+/* 无限滚动动画 */
+.join-images {
+    display: flex;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    gap: 30px;
+    animation: scrollLeft 15s linear infinite;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* 移动一半宽度 */
+    }
+}
+
+/* 应用动画到每个图片 */
+/* 移除原来的单个元素动画 */
+.join-image, .join-image.clone {
+    flex: 0 0 300px;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .join-image {
+        width: 30vw;
+        height: 20vh;
+    }
+}
+
