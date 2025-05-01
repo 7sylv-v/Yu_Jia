@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: '茶泡技艺',
-            path: '/culture/culture.html',
+            path: '/culture/JiYi.html',
             subPaths: [
                 '/culture/picture/',
                 '/culture/'
