@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
             name: '关于产品',
             path: '/craft/craft.html',
             subPaths: [
-                '/craft/product/',
+                '/craft/',
                 '/craft/product/文创/',
                 '/craft/product/普通款/',
                 '/craft/product/老炮儿/',
