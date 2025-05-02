@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
             name: '雅集共赏',
             path: '/event/event.html',
             subPaths: [
-                '/event/img/'
+                '/event/'
             ]
         },
         {
             name: '加入我们',
             path: '/about_us/us.html',
             subPaths: [
-                '/about_us/us_img/'
+                '/about_us/'
             ]
         }
     ];
