@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: '茶泡技艺',
-            path: '/culture/',
+            path: '/culture/JiYi.html',
             subPaths: [
                 './culture/picture/',
                 './culture/'
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: '关于产品',
-            path: '/craft/',
+            path: '/craft/craft.html',
             subPaths: [
                 './craft/product/',
                 './craft/product/文创/',
@@ -53,14 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: '雅集共赏',
-            path: '/event/',
+            path: '/event/event.html',
             subPaths: [
                 './event/img/'
             ]
         },
         {
             name: '加入我们',
-            path: '/about_us/',
+            path: '/about_us/us.html',
             subPaths: [
                 './about_us/'
             ]
