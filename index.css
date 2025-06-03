@@ -1,8 +1,13 @@
+/* 基础样式 */
 * {
     box-sizing: border-box;
 }
 
-/* 自适应 banner 样式 */
+body {
+    background-size: cover;
+}
+
+/* Banner 样式 */
 .banner {
     position: relative;
     width: 100%;
@@ -36,24 +41,7 @@
     object-fit: cover;
 }
 
-/* 响应式调整 */
-@media screen and (max-width: 1024px) {
-    .banner {
-        height: 400px;
-    }
-}
-
-
-
-@media screen and (max-width: 480px) {
-    .banner {
-        height: 220px;
-    }
-}
-
-
-
-/* 轮播图箭头样式 */
+/* Banner 箭头样式 */
 .banner .arrow {
     position: absolute;
     top: 50%;
@@ -74,26 +62,13 @@
     right: 10px;
 }
 
-@media screen and (max-width: 768px) {
-    .banner .arrow {
-        padding: 8px;
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .banner .arrow {
-        padding: 6px;
-        font-size: 12px;
-    }
-}
-
-/* 新增指示器样式 */
+/* Banner 指示器样式 */
 .indicators {
     position: absolute;
     bottom: 20px;
     left: 50%;
-    transform: translateX(-50%);    display: flex;
+    transform: translateX(-50%);
+    display: flex;
     gap: 8px;
     z-index: 3;
 }
@@ -108,194 +83,86 @@
 
 .indicator.active {
     background-image: url('index/indicator-active.png');
-} /* 微调补偿可能的计算误差 */
-
-.banner .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* 确保图片填充并裁剪以适配容器 */
 }
 
-/* 响应式适配 */
-@media screen and (max-width: 768px) {
-    
-    body {
-        background-size: 100% auto; /* 在小屏幕上适应宽度 */
-    }
-    header nav ul li {
-        margin: 0 10px;
-    }
-
-    .row {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    /* 调整第二行的顺序 */
-    .row:nth-child(2) {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .row:nth-child(2) #text2 {
-        order: 2; /* 确保text2在img2后面 */
-    }
-
-    .row:nth-child(2) #img2 {
-        order: 1; /* 确保img2在text2前面 */
-    }
-
-    .container #img1, .container #img2 {
-        width: clamp(40%, 45%, 50%); /* 减小移动端图片尺寸 */
-        margin: 0 0 20px 0;
-    }
-
-    .two-columns #column1 img {
-        width: clamp(30%, 35%, 40%); /* 减小移动端图片尺寸 */
-        margin: 0 auto;
-    }
-
-    .two-columns #column2 img {
-        width: clamp(50%, 55%, 60%); /* 减小移动端图片尺寸 */
-    }
-}
-@media screen and (min-width: 769px) {
-    body {
-        background-size: cover; /* 在大屏幕上适应整个页面 */
-    }
-}
-@media screen and (max-width: 480px) {
-    .banner {
-        height: 40vh; /* 进一步降低 banner 高度 */
-    }
-
-    .banner .arrow {
-        width: 25px;
-        height: 25px;
-        font-size: 14px;
-    }
-
-    .container #img1, .container #img2 {
-        width: clamp(50%, 55%, 60%); /* 进一步减小小屏幕图片尺寸 */
-    }
-
-    .two-columns #column1 img {
-        width: clamp(40%, 45%, 50%); /* 减小小屏幕图片尺寸 */
-    }
-
-    .two-columns #column2 img {
-        width: clamp(60%, 65%, 70%); /* 减小小屏幕图片尺寸 */
-    }
-
-    .row #text1, .row #text2 {
-        width: 90%;
-        font-size: clamp(18px, 3vw, 24px);
-        margin: 20px 0; /* 增加文字上下间距 */
-    }
-
-    .tea-process h2 {
-        font-size: clamp(24px, 4vw, 32px);
-    }
-
-    .step {
-        font-size: clamp(20px, 3vw, 28px);
-    }
-
-    .steps {
-        height: 300px;
-    }
-
-    .step:nth-child(1) { left: 5%; top: 5%; }
-    .step:nth-child(2) { left: 25%; top: 35%; }
-    .step:nth-child(3) { left: 45%; top: 65%; }
-    .step:nth-child(4) { left: 65%; top: 85%; }
-}
-
+/* 介绍部分样式 */
 .intro {
-    text-align: center; /* 水平居中 */
-    font-family: 'Fangzheng Xiaobiao Song', serif; /* 设置字体为方正小标宋简 */
-    font-size: 64px; /* 设置字体大小 */
-    color: #333; /* 字体颜色 */
-    padding: 40px 20px; /* 内边距，增加上下间距 */
+    text-align: center;
+    font-family: 'Fangzheng Xiaobiao Song', serif;
+    font-size: 64px;
+    color: #333;
+    padding: 40px 20px;
     margin-top: 80px;
 }
 
 .intro h2 {
-    margin-bottom: 20px; /* 标题下方的间距 */
+    margin-bottom: 20px;
 }
 
 .intro p {
-    margin-top: 10px; /* 段落上方的间距 */
+    margin-top: 10px;
 }
-/* 正文1 */
+
+/* 容器布局样式 */
 .container {
     display: flex;
-    flex-direction: column; /* 子元素垂直排列 */
-    align-items: center; /* 垂直居中对齐所有行 */
+    flex-direction: column;
+    align-items: center;
     max-width: 100%;
-    
 }
 
 .row {
     display: flex;
-    flex-direction: row; /* 子元素水平排列 */
-    align-items: center; /* 垂直居中对齐所有项目 */
-    justify-content: flex-start; /* 左对齐，避免间距过大 */
-    width: 100%; /* 每行的宽度占满容器 */
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
     max-width: 100%;
-    margin-bottom: 60px; /* 减少每行之间的间隔 */
+    margin-bottom: 60px;
 }
 
 .container #img1 {
-    width: clamp(20%, 25%, 30%); /* 减小图片最大宽度 */
+    width: clamp(20%, 25%, 30%);
     height: auto;
     margin-right: 50px;
 }
+
 .container #img2 {
-    width: clamp(20%, 25%, 30%); /* 减小图片最大宽度 */
+    width: clamp(20%, 25%, 30%);
     height: auto;
     margin-right: 10%;
 }
 
-
-.row #text1 {
-    width: 45%; /* 调整宽度 */
-    font-size: 40px;
-    font-family: 'FangSong', '仿宋', serif;
-    line-height: 1.5;
-    margin-left: 10%; /* 减少左边距 */
-}
-
-.row #text2 {
-    width: 45%; /* 调整宽度 */
+.row #text1, .row #text2 {
+    width: 45%;
     font-size: 40px;
     font-family: 'FangSong', '仿宋', serif;
     line-height: 1.5;
     margin-left: 10%;
-    margin-right: 5%; /* 减少右边距 */
 }
 
+.row #text2 {
+    margin-right: 5%;
+}
 
-/* 制作方法 */
+/* 制茶工艺样式 */
 .tea-process {
     max-width: 100%;
     text-align: center;
-    font-family: 'Fangzheng Xiaobiao Song', serif; /* 使用仿宋字体 */
+    font-family: 'Fangzheng Xiaobiao Song', serif;
 }
 
 .tea-process h2 {
     font-size: 64px;
     color: #333;
-    margin-bottom: 30px; /* 增加与其他部分的间距 */
+    margin-bottom: 30px;
 }
 
 .steps {
     display: inline;
-    height: 500px;  /* 设置容器的高度 */
+    height: 500px;
     position: relative;
-    overflow: hidden;  /* 防止溢出 */
+    overflow: hidden;
 }
 
 .step {
@@ -303,12 +170,13 @@
     color: #000;
     opacity: 0;
     transition: all 0.8s ease;
-    transform: translateY(30px);  /* 初始状态位置稍微偏下 */
+    transform: translateY(30px);
     display: flex;
     position: absolute;
-    width: 100%; /* 让它们水平居中 */
+    width: 100%;
 }
-.step.visible{
+
+.step.visible {
     width: fit-content;
 }
 
@@ -333,10 +201,9 @@
 }
 
 .steps .step img {
-    width: 40px;
-    height: 40px;
+    width: clamp(20px, 4vw, 40px);
+    height: clamp(20px, 4vw, 40px);
     margin-top: auto;
-    display: block;
 }
 
 /* 默认隐藏和从下方滑动 */
@@ -356,111 +223,100 @@
 /* 给父容器添加flex布局，确保子元素垂直排列 */
 .two-columns {
     display: flex;
-    flex-direction: column; /* 子元素垂直排列 */
-    gap: 20px; /* 子元素之间的间隔 */
-    align-items: center; /* 垂直居中对齐所有项目 */
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
 }
 
 .two-columns #column1 {
-    display: block; /* 或者保持默认的块级元素 */
-    width: 100%; /* 确保容器占满宽度 */
-    text-align: right; /* 让里面的图片靠右对齐 */
+    
+    width: 100%;
+    text-align: right;
 }
 
 .two-columns #column1 img {
-    width: clamp(20%, 25%, 30%); /* 减小图片最大宽度 */
+    width: clamp(20%, 25%, 30%);
     border-radius: 10px;
     transition: transform 0.3s ease;
     margin-left: auto;
     margin-right: 15%;
 }
 
-/* 设置图片的父容器position为relative */
 .two-columns #column2 {
     display: flex;
-    flex-direction: row; /* 子元素水平排列 */
-    justify-content: center; /* 确保#column2的内容水平居中 */
-    align-items: center; /* 垂直居中对齐所有项目 */
-    gap: 60px; /* 设置元素之间的间隔为60px */
-    width: 100%; /* 确保容器宽度占满 */
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    width: 100%;
 }
 
-/* 图片的基础样式 */
 .two-columns #column2 img {
-    width: 100%; /* 根据需求调整图片宽度 */
+    width: 100%;
     height: auto;
     border-radius: 10px;
     transition: transform 0.3s ease;
     position: relative;
 }
 
-/* 设置hover时显示图层的效果 */
 .two-columns #column2 > div:hover::after {
-    content: "了解详情"; /* 显示文本 */
-    position: absolute; /* 绝对定位在图片上 */
-    bottom: 0; /* 图层放置在图片底部 */
+    content: "了解详情";
+    position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
-    height: 33%; /* 图层高度为图片的1/3 */
-    background-color: rgba(217, 27, 27, 0.7); /* 半透明红色背景 */
-    color: white; /* 白色文本 */
-    font-size: 24px; /* 文本大小 */
+    height: 33%;
+    background-color: rgba(217, 27, 27, 0.7);
+    color: white;
+    font-size: 24px;
     display: flex;
-    justify-content: flex-end; /* 水平靠右 */
-    align-items: flex-end; /* 垂直靠底部 */
-    padding: 10px 20px; /* 右下角文本的内边距 */
-    border-radius: 10px; /* 圆角效果 */
-    opacity: 0; /* 初始不可见 */
-    transition: opacity 0.3s ease-in-out; /* 平滑过渡 */
-}
-
-/* 鼠标悬停时显示蒙版 */
-.two-columns #column2 > div:hover::after {
-    opacity: 1; /* 鼠标悬停时显示蒙版 */
-}
-
-/* 让蒙版上的文字加粗 */
-.two-columns #column2 > div:hover::after {
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px 20px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
     font-weight: bold;
 }
 
+.two-columns #column2 > div:hover::after {
+    opacity: 1;
+}
 
-
-
-/* 2. description部分设置间距，调整文字样式 */
 .two-columns .description {
     margin-top: 20px;
     font-size: 32px;
     color: #333;
     line-height: 1.8;
     font-family: 'FangSong', '仿宋', serif;
-    padding: 0 20px; /* 添加左右内边距 */
+    padding: 0 20px;
 }
 
+/* 合作伙伴墙样式 */
 .partner-wall {
     margin: 80px 0;
     width: 100%;
     overflow: hidden;
     display: flex;
-    flex-direction: row; /* 子元素垂直排列 */
-  }
-  
-  .partner-card {
-    display: inline - block;
+    flex-direction: row;
+}
+
+.partner-card {
+    display: inline-block;
     width: 15%;
     margin-right: 5%;
     display: flex;
-    flex-direction: column; /* 子元素垂直排列 */
+    flex-direction: column;
     position: relative;
     background-color: aliceblue;
     border: 1px solid #ccc;
     border-radius: 20px;
-    padding-bottom: 20%; /* 4/3的比例，即100/ (4/3) = 75% */
-    box-sizing: border-box; /* 确保边框和内边距不会增加元素的尺寸 */
-  }
+    padding-bottom: 20%;
+    box-sizing: border-box;
+}
 
 .partner-card img {
-    width:85%;
+    width: 85%;
     border-radius: 50%;
     position: absolute;
     top: 40%;
@@ -473,16 +329,12 @@
     text-align: center;
 }
 
-@media (max-width: 768px) {
-    .partner-card {
-       width: 100%;
-       margin-right: 0;
-       margin-bottom: 20px;
-     }
-}
-
-/* 响应式布局 */
+/* 响应式样式 */
 @media screen and (max-width: 1024px) {
+    .banner {
+        height: 400px;
+    }
+
     .intro {
         font-size: clamp(32px, 5vw, 64px);
         padding: clamp(20px, 4vw, 40px);
@@ -519,12 +371,13 @@
         background-size: 100% auto;
     }
 
-    header nav ul li {
-        margin: 0 10px;
-    }
-
     .banner {
         height: clamp(200px, 60vw, 300px);
+    }
+
+    .banner .arrow {
+        padding: 8px;
+        font-size: 14px;
     }
 
     .row {
@@ -534,8 +387,21 @@
         margin-bottom: 30px;
     }
 
+    .row:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .row:nth-child(2) #text2 {
+        order: 2;
+    }
+
+    .row:nth-child(2) #img2 {
+        order: 1;
+    }
+
     .container #img1, .container #img2 {
-        width: clamp(50%, 60%, 70%); /* 中等屏幕下适当放大 */
+        width: clamp(50%, 60%, 70%);
         margin: 0 0 20px 0;
     }
 
@@ -554,15 +420,18 @@
         font-size: clamp(24px, 4vw, 48px);
     }
 
-    .two-columns {
-        margin: 0 20px;
+    .steps {
+        height: 400px;
     }
 
-    .two-columns #column1 img {
-        width: clamp(40%, 45%, 50%);
-        margin: 0 auto;
+    .steps .step img {
+        width: clamp(16px, 3vw, 30px);
+        height: clamp(16px, 3vw, 30px);
     }
 
+    .step:nth-child(1) { left: 10%; top: 5%; }
+    .step:nth-child(2) { left: 30%; top: 35%; }
+    .step:nth-child(3) { left: 50%; top: 65%; }
     .two-columns #column2 {
         flex-direction: column;
         gap: 30px;
@@ -590,7 +459,7 @@
 
 @media screen and (max-width: 480px) {
     .banner {
-        height: clamp(180px, 70vw, 250px);
+        height: clamp(180px, 70vw, 200px);
     }
 
     .intro {
@@ -598,8 +467,13 @@
         margin-top: 30px;
     }
 
-    .container #img1, .container #img2 {
-        width: clamp(70%, 75%, 80%); /* 小屏幕下控制最大宽度 */
+    .container #img1 {
+        display: none; /* 在移动端隐藏图片 */
+    }
+
+    .container #img2 {
+        width: clamp(20%, 50%, 50%); 
+        /* 小屏幕下控制最大宽度 */
     }
 
     .row #text1, .row #text2 {
@@ -614,7 +488,6 @@
     .step {
         font-size: clamp(20px, 3vw, 28px);
     }
-
     .steps {
         height: 300px;
     }
@@ -624,16 +497,33 @@
     .step:nth-child(3) { left: 45%; top: 65%; }
     .step:nth-child(4) { left: 65%; top: 85%; }
 
-    .two-columns #column1 img {
-        width: clamp(50%, 60%, 70%);
+    .two-columns .chapao {
+        margin-top: 20px;
+        width: clamp(20%, 50%, 50%); 
     }
 
     .two-columns #column2 img {
-        width: clamp(75%, 80%, 85%);
+        
+        width: clamp(20%, 50%, 50%); 
     }
 
     .two-columns .description {
         font-size: clamp(16px, 2vw, 18px);
         padding: 0 20px;
+    }
+}
+
+/* 响应式调整 */
+@media screen and (max-width: 768px) {
+    .steps .step img {
+        width: clamp(16px, 3vw, 30px);
+        height: clamp(16px, 3vw, 30px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .steps .step img {
+        width: clamp(12px, 2.5vw, 20px);
+        height: clamp(12px, 2.5vw, 20px);
     }
 }
