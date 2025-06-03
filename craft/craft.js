@@ -2,10 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const productItems = document.querySelectorAll('.product-item');
     const productLinks = document.querySelectorAll('.product-list a');
     const productDisplay = document.querySelector('.product-display');
-    const listHeader1 = document.getElementById('list-header1');
-    const listHeader2 = document.getElementById('list-header2');
-    const productList1 = document.querySelector('fieldset:first-of-type .product-list');
-    const productList2 = document.querySelector('fieldset:last-of-type .product-list');
+    const fieldsets = document.querySelectorAll('.product-list fieldset');
     
     // 移除所有产品的高亮效果
     function removeAllHighlights() {
@@ -28,36 +25,29 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Tab切换功能
-    function switchTab(tabId) {
-        // 移除所有active类
-        listHeader1.classList.remove('active');
-        listHeader2.classList.remove('active');
-        
-        // 隐藏所有产品列表
-        productList1.style.display = 'none';
-        productList2.style.display = 'none';
-        
-        // 显示选中的tab和对应的产品列表
-        if (tabId === 'list-header1') {
-            listHeader1.classList.add('active');
-            productList1.style.display = 'flex';
-            // 默认显示第一个产品
-            const firstProduct = productList1.querySelector('a');
-            if (firstProduct) {
-                updateActiveNav(firstProduct);
-                const targetId = firstProduct.getAttribute('data-target');
-                highlightProduct(targetId);
+    function switchTab(fieldset) {
+        // 移除所有fieldset和legend的active类
+        fieldsets.forEach(fs => {
+            fs.classList.remove('active');
+            const legend = fs.querySelector('legend');
+            if (legend) {
+                legend.classList.remove('active');
             }
-        } else {
-            listHeader2.classList.add('active');
-            productList2.style.display = 'flex';
-            // 默认显示第一个产品
-            const firstProduct = productList2.querySelector('a');
-            if (firstProduct) {
-                updateActiveNav(firstProduct);
-                const targetId = firstProduct.getAttribute('data-target');
-                highlightProduct(targetId);
-            }
+        });
+        
+        // 添加active类到当前fieldset及其legend
+        fieldset.classList.add('active');
+        const currentLegend = fieldset.querySelector('legend');
+        if (currentLegend) {
+            currentLegend.classList.add('active');
+        }
+        
+        // 默认显示第一个产品
+        const firstProduct = fieldset.querySelector('ul li a'); // 确保选中列表中的第一个链接
+        if (firstProduct) {
+            updateActiveNav(firstProduct);
+            const targetId = firstProduct.getAttribute('data-target');
+            highlightProduct(targetId);
         }
     }
     
@@ -83,8 +73,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Tab点击事件
-    listHeader1.addEventListener('click', () => switchTab('list-header1'));
-    listHeader2.addEventListener('click', () => switchTab('list-header2'));
+    fieldsets.forEach(fieldset => {
+        const legend = fieldset.querySelector('legend');
+        legend.addEventListener('click', () => switchTab(fieldset));
+    });
     
     // 滚动时更新左侧导航活动状态
     productDisplay.addEventListener('scroll', function() {
@@ -141,5 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // 初始化：默认显示包装产品
-    switchTab('list-header1');
+    const defaultFieldset = document.querySelector('.product-list fieldset');
+    if (defaultFieldset) {
+        switchTab(defaultFieldset);
+    }
 });
