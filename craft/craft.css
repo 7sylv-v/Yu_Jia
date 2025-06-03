@@ -79,7 +79,7 @@ fieldset {
 legend {
   font-weight:500;
   font-size: 28px;
-  margin-bottom: 20px;
+  margin-bottom: 1.2rem;
 }
 
 
@@ -303,19 +303,31 @@ legend {
     }
 
     /* 默认显示包装产品 */
-    #list-header1 {
-        border-bottom-color: #a47d1c;
-        color: #a47d1c;
-    }
-
     fieldset {
         margin: 0;
         padding: 0;
         border: none;
     }
 
-    legend {
+    fieldset:not(.active) ul {
         display: none;
+    }
+
+    fieldset.active ul {
+        display: flex;
+    }
+
+    legend {
+        display: block;
+        font-size: 24px;
+        margin-bottom: 1.2rem;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    legend.active {
+        color: #a47d1c;
+        border-bottom: 2px solid #a47d1c;
     }
 
     /* 列表样式 */
@@ -432,8 +444,8 @@ legend {
     }
 
     #list-header1, #list-header2 {
-        padding: 8px 16px;
-        margin: 0 8px;
+        padding: 0px 16px;
+        margin: 2px 8px;
         font-size: 20px;
     }
 
@@ -443,6 +455,7 @@ legend {
     }
 
     .product-list ul {
+      margin-top: 12px;
         gap: 8px;
     }
 
