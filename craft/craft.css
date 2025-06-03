@@ -38,7 +38,7 @@ body {
   display: flex;
   margin: 0 120px;
   padding: 2rem;
-  gap: 20px;
+  gap: 0;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -164,7 +164,14 @@ legend {
   border: 0.5px solid #e0e0e027;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
+}
+
+/* 添加高亮状态 */
+.product-item.highlight {
+  border: 2px solid #d4a373;
+  box-shadow: 0 0 20px rgba(212, 163, 115, 0.3);
+  transform: scale(1.02);
 }
 
 /* 16:9 图片容器 */
@@ -226,41 +233,219 @@ legend {
 }
 
 /* ===== 响应式调整 ===== */
+@media (max-width: 1440px) {
+    .product-wrapper {
+        margin: 0 80px;
+    }
+
+    .product-item {
+        width: 75%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .product-wrapper {
+        margin: 0 60px;
+    }
+
+    .banner-title {
+        font-size: 42px;
+    }
+
+    .list-header {
+        font-size: 36px;
+    }
+
+    .product-item {
+        width: 80%;
+    }
+}
+
 @media (max-width: 768px) {
-  .product-wrapper {
-      flex-direction: column;
-      padding: 1.5rem;
-      margin: 1rem auto;
-  }
+    .banner {
+        height: 300px;
+    }
 
-  .product-left {
-      width: 100%;
-      position: static;
-      height: auto;
-      padding: 20px 15px;
-      margin-bottom: 20px;
-  }
+    .banner-title {
+        font-size: 36px;
+        bottom: 40px;
+    }
 
-  .product-list .list-header {
-      font-size: 36px;
-  }
+    .product-wrapper {
+        margin: 0 40px;
+    }
 
-  .product-list a {
-      font-size: 18px;
-  }
+    .product-left {
+        width: 180px;
+        padding: 30px 10px;
+    }
 
-  .product-display {
-      width: 100%;
-  }
+    .list-header {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
 
-  .product-item {
-      margin: 30px 0;
-  }
+    legend {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
 
-  .banner-title {
-      font-size: 36px;
-      bottom: 15%;
-  }
+    .product-list a {
+        font-size: 18px;
+    }
+
+    .product-display {
+        width: calc(100% - 200px);
+    }
+
+    .product-item {
+        width: 85%;
+        margin: 30px 0;
+    }
+
+    .product-overlay h3 {
+        font-size: 20px;
+    }
+
+    .product-overlay p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 200px;
+    }
+
+    .banner-title {
+        font-size: 28px;
+        bottom: 30px;
+    }
+
+    .product-wrapper {
+        margin: 0 20px;
+        flex-direction: column;
+    }
+
+    .product-left {
+        width: 100%;
+        padding: 20px 8px;
+        position: relative;
+        top: 0;
+    }
+
+    .product-list {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    fieldset {
+        margin: 0;
+        flex: 1;
+        padding: 0 10px;
+    }
+
+    .list-header {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    legend {
+        font-size: 18px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .product-list ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-list a {
+        font-size: 16px;
+    }
+
+    .product-display {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .product-item {
+        width: 85%;
+        margin: 30px 0;
+    }
+
+    .product-overlay h3 {
+        font-size: 20px;
+    }
+
+    .product-overlay p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .banner {
+        height: 180px;
+    }
+
+    .banner-title {
+        font-size: 24px;
+        bottom: 50px;
+    }
+
+    .product-wrapper {
+        padding: 1rem;
+    }
+
+    .product-left {
+        padding: 15px 5px;
+    }
+
+    .product-list {
+        gap: 10px;
+    }
+
+    fieldset {
+        padding: 0 5px;
+    }
+
+    .list-header {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+
+    legend {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .product-list a {
+        font-size: 14px;
+    }
+
+    .product-list li {
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .product-display {
+        margin-top: 15px;
+    }
+
+    .product-item {
+        margin: 15px 0;
+    }
+
+    .product-overlay h3 {
+        font-size: 16px;
+    }
+
+    .product-overlay p {
+        font-size: 12px;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {

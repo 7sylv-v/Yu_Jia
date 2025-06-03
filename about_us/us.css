@@ -52,7 +52,7 @@ body {
 
 .about-text p {
     font-family: 'Fangzheng Xiaobiao Song', serif;
-    font-size: 20px;
+    font-size: clamp(16px, 2vw, 20px);
     color: #6D4C41;
     line-height: 1.6;
 }
@@ -72,7 +72,26 @@ body {
 }
 
 /* 响应式布局 */
+@media (max-width: 1024px) {
+    .banner-title {
+        font-size: 42px;
+    }
+
+    .about-text p {
+        font-size: 18px;
+    }
+}
+
 @media (max-width: 768px) {
+    .banner {
+        height: 300px;
+    }
+
+    .banner-title {
+        font-size: 36px;
+        bottom: 40px;
+    }
+
     .about-container {
         flex-direction: column;
         text-align: center;
@@ -84,6 +103,40 @@ body {
 
     .about-text {
         margin-bottom: 20px;
+    }
+
+    .about-text p {
+        font-size: 17px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner {
+        height: 200px;
+    }
+
+    .banner-title {
+        font-size: 28px;
+        bottom: 30px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px) {
+    .banner {
+        height: 180px;
+    }
+
+    .banner-title {
+        font-size: 24px;
+        bottom: 50px;
+    }
+
+    .about-text p {
+        font-size: 16px;
     }
 }
 
@@ -169,17 +222,6 @@ body {
     position: relative;
 }
 
-/* 图片项基础样式 */
-.join-image {
-    flex: 0 0 300px; /* 固定宽度 */
-    height: 100%;
-    background-size: cover;
-    background-position: center;
-    margin-right: 20px;
-    position: relative;
-    border-radius: 10px;
-}
-
 /* 无限滚动动画 */
 .join-images {
     display: flex;
@@ -200,6 +242,17 @@ body {
     }
 }
 
+/* 图片项基础样式 */
+.join-image {
+    flex: 0 0 300px; /* 固定宽度 */
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-right: 20px;
+    position: relative;
+    border-radius: 10px;
+}
+
 /* 应用动画到每个图片 */
 /* 移除原来的单个元素动画 */
 .join-image, .join-image.clone {
@@ -211,9 +264,35 @@ body {
 
 /* 响应式适配 */
 @media (max-width: 768px) {
+    .join-images {
+        height: 200px;
+        gap: 20px;
+    }
+
     .join-image {
-        width: 30vw;
-        height: 20vh;
+        flex: 0 0 200px;
+        height: 100%;
+        margin-right: 15px;
+    }
+
+    .join-image, .join-image.clone {
+        flex: 0 0 200px;
+        height: 100%;
     }
 }
 
+@media (max-width: 480px) {
+    .join-images {
+        height: 160px;
+        gap: 15px;
+    }
+
+    .join-image {
+        flex: 0 0 160px;
+        margin-right: 10px;
+    }
+
+    .join-image, .join-image.clone {
+        flex: 0 0 160px;
+    }
+}

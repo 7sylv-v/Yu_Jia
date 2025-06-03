@@ -1,7 +1,3 @@
-header{
-    position: relative;
-    height: 80px;
-}
 .main-container{
     margin: 0 140px;
 }
@@ -226,4 +222,142 @@ header{
 .packaging-card:hover .card-decoration {
     height: 8px;
     background: linear-gradient(90deg, #8e6b3f, #d4a373);
+}
+
+/* 响应式布局优化 */
+@media screen and (max-width: 1366px) {
+    .main-container {
+        margin: 0 80px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .main-container {
+        margin: 0 20px;
+    }
+    
+    .product-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .product-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .product-card {
+        width: 100%;
+    }
+    
+    .packaging-card {
+        grid-column: span 1;
+        margin-top: 0;
+    }
+    
+    .product-image {
+        height: 220px;
+    }
+    
+    .packaging-features {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-container {
+        margin: 0 15px;
+    }
+    
+    .product-gallery {
+        gap: 15px;
+    }
+    
+    .product-image {
+        height: 180px;
+    }
+    
+    .product-content {
+        padding: 1rem;
+    }
+    
+    .poetic-desc {
+        font-size: 0.9rem;
+        margin: 8px 0;
+    }
+    
+    .packaging-badge {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+    
+    .packaging-features span {
+        padding: 4px 8px;
+        font-size: 0.75rem;
+    }
+    
+    .product-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .product-content p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}
+
+/* 模态框响应式样式 */
+.packaging-modal .modal-content {
+    max-width: 800px;
+    width: 90%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .packaging-modal .modal-content {
+        width: 95%;
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .modal-gallery {
+        flex-direction: column;
+    }
+    
+    .modal-gallery img {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+    }
+    
+    .modal-desc {
+        margin-top: 15px;
+    }
+    
+    .modal-desc ul {
+        padding-left: 20px;
+    }
+}
+
+/* 优化打印样式 */
+@media print {
+    .product-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .product-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    .packaging-badge,
+    .card-decoration {
+        display: none;
+    }
 }

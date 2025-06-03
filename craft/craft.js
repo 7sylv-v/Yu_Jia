@@ -3,39 +3,64 @@ document.addEventListener('DOMContentLoaded', function() {
     const productLinks = document.querySelectorAll('.product-list a');
     const productDisplay = document.querySelector('.product-display');
     
+    // 移除所有产品的高亮效果
+    function removeAllHighlights() {
+        productItems.forEach(item => {
+            item.classList.remove('highlight');
+        });
+    }
+
+    // 添加高亮效果
+    function highlightProduct(targetId) {
+        removeAllHighlights();
+        const targetProduct = document.getElementById(targetId);
+        if (targetProduct) {
+            targetProduct.classList.add('highlight');
+            // 3秒后自动移除高亮效果
+            setTimeout(() => {
+                targetProduct.classList.remove('highlight');
+            }, 3000);
+        }
+    }
+    
     // 点击左侧导航滚动到对应产品
     productLinks.forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('data-target');
-        const targetProduct = document.getElementById(targetId);
-        
-        // 更新左侧导航活动状态
-        updateActiveNav(this);
-        
-        // 滚动到对应产品
-        targetProduct.scrollIntoView({ behavior: 'smooth' });
-        
-        // 楼梯效果
-        animateStairEffect(targetProduct);
-      });
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+            const targetProduct = document.getElementById(targetId);
+            
+            // 更新左侧导航活动状态
+            updateActiveNav(this);
+            
+            // 滚动到对应产品
+            targetProduct.scrollIntoView({ behavior: 'smooth' });
+            
+            // 添加高亮效果
+            highlightProduct(targetId);
+            
+            // 楼梯效果
+            animateStairEffect(targetProduct);
+        });
     });
     
     // 滚动时更新左侧导航活动状态
     productDisplay.addEventListener('scroll', function() {
-      const scrollPosition = productDisplay.scrollTop;
-      const windowHeight = window.innerHeight;
-      
-      productItems.forEach((item, index) => {
-        const itemTop = item.offsetTop;
-        const itemHeight = item.offsetHeight;
+        const scrollPosition = productDisplay.scrollTop;
+        const windowHeight = window.innerHeight;
         
-        if (scrollPosition >= itemTop - windowHeight * 0.3 && 
-            scrollPosition < itemTop + itemHeight - windowHeight * 0.3) {
-          const correspondingLink = document.querySelector(`.product-list a[data-target="${item.id}"]`);
-          updateActiveNav(correspondingLink);
-        }
-      });
+        productItems.forEach((item, index) => {
+            const itemTop = item.offsetTop;
+            const itemHeight = item.offsetHeight;
+            
+            if (scrollPosition >= itemTop - windowHeight * 0.3 && 
+                scrollPosition < itemTop + itemHeight - windowHeight * 0.3) {
+                const correspondingLink = document.querySelector(`.product-list a[data-target="${item.id}"]`);
+                updateActiveNav(correspondingLink);
+                // 当滚动到对应位置时也添加高亮效果
+                highlightProduct(item.id);
+            }
+        });
     });
     
     // 更新活动导航状态
