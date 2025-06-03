@@ -199,6 +199,7 @@ body {
 
     .about-text p {
         font-size: 17px;
+        text-align: left;
     }
 
     .advantages-content {
@@ -214,6 +215,14 @@ body {
     .join-image, .join-image.clone {
         flex: 0 0 200px;
     }
+
+    .advantages-container p {
+        text-align: left;
+    }
+
+    .advantage-box p {
+        text-align: left;
+    }
 }
 
 @media (max-width: 480px) {
@@ -228,6 +237,7 @@ body {
 
     .about-text p {
         font-size: 16px;
+        text-align: left;
     }
 
     .join-images {
@@ -237,6 +247,14 @@ body {
 
     .join-image, .join-image.clone {
         flex: 0 0 160px;
+    }
+
+    .advantages-container p {
+        text-align: left;
+    }
+
+    .advantage-box p {
+        text-align: left;
     }
 }
 
@@ -252,5 +270,14 @@ body {
 
     .about-text p {
         font-size: 16px;
+        text-align: left;
+    }
+
+    .advantages-container p {
+        text-align: left;
+    }
+
+    .advantage-box p {
+        text-align: left;
     }
 }
